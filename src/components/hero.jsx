@@ -1,21 +1,89 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
+import avion from '../assets/avion.png';
 
-const Hero = () => {
+function Hero({ footerRef }) {
+  const planeRef = useRef(null);
+  const titleRef = useRef(null);
+  const observerRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      const plane = planeRef.current;
+
+      if (plane) {
+        const moveFactor = 25; // Controla qué tan lejos se moverá la imagen respecto al movimiento del mouse
+
+        const x = (event.clientX - window.innerWidth / 2) / moveFactor;
+        const y = (event.clientY - window.innerHeight / 2) / moveFactor;
+
+        plane.style.transform = `translate(${x}px, ${y}px)`;
+      }
+    };
+
+    const handleScroll = () => {
+      const title = titleRef.current;
+      const plane = planeRef.current;
+
+      if (title) {
+        const scrollPos = window.scrollY;
+        title.style.transform = `translateY(-${scrollPos}px)`;
+        title.style.opacity = 1 - scrollPos / 800;
+
+        // Agrega la animación de transparencia del avión
+        if (plane) {
+          plane.style.opacity = 1 - scrollPos / 800;
+        }
+      }
+    };
+
+    const handleIntersection = (entries) => {
+      const [entry] = entries;
+      if (entry.isIntersecting) {
+        window.removeEventListener('scroll', handleScroll);
+      } else {
+        window.addEventListener('scroll', handleScroll);
+      }
+    };
+
+    if (footerRef.current) {
+      observerRef.current = new IntersectionObserver(handleIntersection, {
+        threshold: 0.1,
+      });
+      observerRef.current.observe(footerRef.current);
+    }
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
+
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [footerRef]);
+
   return (
-    <section class="text-gray-600 body-font">
-      <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-      <img className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600" />
-          <div class="text-center lg:w-2/3 w-full">
-            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Microdosing synth tattooed vexillologist</h1>
-            <p class="mb-8 leading-relaxed">Meggings kinfolk echo park stumptown DIY, kale chips beard jianbing tousled. Chambray dreamcatcher trust fund, kitsch vice godard disrupt ramps hexagon mustache umami snackwave tilde chillwave ugh. Pour-over meditation PBR&amp;B pickled ennui celiac mlkshk freegan photo booth af fingerstache pitchfork.</p>
-            <div class="flex justify-center">
-              <button class="inline-flex text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg">Button</button>
-              <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button>
-            </div>
-          </div>
+    <section className="h-screen flex justify-center items-center bg-gradient-to-t from-white via-blue-500 to-purple-500">
+      <div className="relative">
+        <img
+          ref={planeRef}
+          src={avion}
+          className="mx-auto transition-all duration-300 ease-out" // Aplica la transición suave con la función de aceleración ease-out
+        />
+
+        <h1
+          ref={titleRef}
+          className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center text-white text-5xl font-bold tracking-tighter uppercase"
+        >
+          Welcome to my website
+        </h1>
       </div>
     </section>
   );
-};
+}
 
 export default Hero;
+
