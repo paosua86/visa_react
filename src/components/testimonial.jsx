@@ -1,8 +1,5 @@
 import React from 'react';
-import { FcCustomerSupport } from "react-icons/fc";
-import { FcLineChart } from "react-icons/fc";
-import { FcSmartphoneTablet } from "react-icons/fc";
-import { FcDonate } from "react-icons/fc";
+
 
 const Testimonial = () => {
   return (

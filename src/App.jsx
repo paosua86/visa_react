@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/hero';
@@ -11,10 +11,16 @@ import Consultoria from './components/consultoria';
 import Process from './components/process';
 import Testimonial from './components/testimonial';
 import Pricing from './components/pricing';
+import AOS from 'aos';
 
 const App = () => {
   const footerRef = useRef(null);
-
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
   return (
     <Router>
       <div className="app">
