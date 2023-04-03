@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import avion from '../assets/avion.png';
+import avion from '../assets/travel.png';
 
 function Hero({ footerRef }) {
   const planeRef = useRef(null);
@@ -71,14 +71,14 @@ function Hero({ footerRef }) {
         <img
           ref={planeRef}
           src={avion}
-          className="mx-auto transition-all duration-300 ease-out" // Aplica la transición suave con la función de aceleración ease-out
+          className="mx-auto transition-all duration-300 ease-out max-w-[70%]" // Aplica la transición suave con la función de aceleración ease-out
         />
 
         <h1
           ref={titleRef}
           className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center text-white text-5xl font-bold tracking-tighter uppercase"
         >
-          Welcome to my website
+         Tu Visa Check
         </h1>
       </div>
     </section>

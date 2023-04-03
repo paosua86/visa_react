@@ -2,13 +2,15 @@ import React, { useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/hero';
-// import AboutUs from './components/aboutUs';
+import AboutUs from './components/aboutUs';
 import Services from './components/services';
 import Contact from './components/contact';
 import FAQ from './components/FAQ';
 import Footer from './components/footer';
 import Consultoria from './components/consultoria';
 import Process from './components/process';
+import Testimonial from './components/testimonial';
+import Pricing from './components/pricing';
 
 const App = () => {
   const footerRef = useRef(null);
@@ -24,8 +26,10 @@ const App = () => {
             path="/"
             element={
               <div>
-                {/* <AboutUs />
-                <Services /> */}
+                <AboutUs />
+                <Testimonial />
+                <Services />
+                <Pricing />
                 <Process />
                 <Consultoria />
                 <Contact />

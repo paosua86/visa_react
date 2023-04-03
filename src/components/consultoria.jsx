@@ -1,4 +1,8 @@
 import React from "react";
+import uno from '../assets/200.png';
+import dos from '../assets/260.png';
+import tres from '../assets/170.png';
+import cuatro from '../assets/2002.png';
 
 const Consultoria = () => {
     return (
@@ -9,13 +13,14 @@ const Consultoria = () => {
                     <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
                         <div class="ml-auto lg:col-start-2 lg:max-w-2xl">
                             <p class="text-base font-semibold leading-6 text-indigo-500 uppercase">
-                                Interactive
+                                Consultorías personalizadas
                             </p>
                             <h4 class="mt-2 text-2xl font-extrabold leading-8 text-gray-900 dark:text-white sm:text-3xl sm:leading-9">
-                                Interactivity between team members is the key of the success.
+                                Nuestro servicio de consultorías le ayuda a centrarse en la información importante al momento de su cita en la embajada
                             </h4>
                             <p class="mt-4 text-lg leading-6 text-gray-500 dark:text-gray-300">
-                                Build a simply and powered collaborative space for all your team. Track, share, measure, you have a fully control, it&#x27;s never be simply and efficient.
+                                planificación de sus respuestas y revisión de documentos
+
                             </p>
                             <ul class="gap-6 mt-8 md:grid md:grid-cols-2">
                                 <li class="mt-6 lg:mt-0">
@@ -75,12 +80,12 @@ const Consultoria = () => {
                         <div class="relative mt-10 lg:-mx-4 relative-20 lg:mt-0 lg:col-start-1">
                             <div class="relative space-y-4">
                                 <div class="flex items-end justify-center space-x-4 lg:justify-start">
-                                    <img class="w-32 rounded-lg shadow-lg md:w-56" width="200" src="/images/object/8.jpg" alt="1" />
-                                    <img class="w-40 rounded-lg shadow-lg md:w-64" width="260" src="/images/landscape/4.jpg" alt="2" />
+                                    <img class="w-32 rounded-lg shadow-lg md:w-56" width="200" src={uno} alt="1" />
+                                    <img class="w-40 rounded-lg shadow-lg md:w-64" width="260" src={dos} alt="2" />
                                 </div>
                                 <div class="flex items-start justify-center ml-12 space-x-4 lg:justify-start">
-                                    <img class="w-24 rounded-lg shadow-lg md:w-40" width="170" src="/images/landscape/3.jpg" alt="3" />
-                                    <img class="w-32 rounded-lg shadow-lg md:w-56" width="200" src="/images/object/9.jpg" alt="4" />
+                                    <img class="w-24 rounded-lg shadow-lg md:w-40" width="170" src={tres} alt="3" />
+                                    <img class="w-32 rounded-lg shadow-lg md:w-56" width="200" src={cuatro} alt="4" />
                                 </div>
                             </div>
                         </div>
