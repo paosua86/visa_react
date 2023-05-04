@@ -1,3 +1,112 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+h1 {
+  font-family: "Manrope", sans-serif;
+}
+
+h2,
+h3,
+h4,
+p,
+a,
+li {
+  font-family: "Righteous", cursive;
+}
+body.overflow-hidden {
+  overflow-x: hidden;
+}
+
+.whatsapp_btn {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  background-color: green;
+  border-radius: 50%;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  bottom: 2rem;
+  right: 2rem;
+  animation: bounce 2s infinite; /* Aplicamos la animación */
+  max-width: 100%
+}
+
+.whatsapp_btn img {
+  max-width: 100%; /* Hace que la imagen sea responsive */
+  height: auto; /* Mantiene la proporción de aspecto de la imagen */
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 3000px) {
+
+  body {
+      width: 100%;
+      overflow-x: hidden;
+  }
+  footer {
+      width: 100%;
+      overflow-x: hidden;
+  }
+}
+@media (max-width: 1024px) {
+  body {
+    width: 100%;
+    overflow-x: hidden;
+}
+footer {
+    width: 100%;
+    overflow-x: hidden;
+}
+}
+@media (max-width: 768px) {
+  body {
+    width: 100%;
+    overflow-x: hidden;
+}
+footer {
+    width: 100%;
+    overflow-x: hidden;
+}
+}
+@media (max-width: 480px) {
+  body {
+    width: 100%;
+    overflow-x: hidden;
+}
+footer {
+    width: 100%;
+    overflow-x: hidden;
+}
+}
+
+@media (max-width: 320px) {
+  body {
+    width: 100%;
+    overflow-x: hidden;
+}
+footer {
+    width: 100%;
+    overflow-x: hidden;
+}
+}
+

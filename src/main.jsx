@@ -1,12 +1,21 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
-import 'aos/dist/aos.css';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import {
+  createHashRouter,
+  RouterProvider
+} from 'react-router-dom';
+import App from './App';
+import './index.css';
 
+const router = createHashRouter([
+  {
+    path: "/*",
+    element: <App />,
+  }
+]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);

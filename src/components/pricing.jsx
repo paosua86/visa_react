@@ -1,30 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Pricing = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   const prices = [
     {
       subtitle: 'USA',
       price: '$40',
-      features: ['Vexillologist pitchfork', 'Tumeric plaid portland', 'Mixtape chillwave tumeric'],
-      description: 'Literally you probably haven\'t heard of them jean shorts.',
+      features: ['Llenado de formulario', 'Estrategia para embajada', 'Seguimiento de cita y actualizaciones de fecha', 'Asesoría para entrevista'],
+      description: 'Los resultados finales dependen de la embajada.',
     },
     {
       subtitle: 'CANADA',
       price: '$70',
-      features: ['Vexillologist pitchfork', 'Tumeric plaid portland', 'Mixtape chillwave tumeric'],
-      description: 'Literally you probably haven\'t heard of them jean shorts.',
+      features: ['Llenado de formulario', 'Estrategia para embajada', 'Seguimiento de cita'],
+      description: 'Los resultados finales dependen de la embajada.',
     },
     {
       subtitle: 'EUROPA',
       price: '$80',
-      features: ['Vexillologist pitchfork', 'Tumeric plaid portland', 'Mixtape chillwave tumeric'],
-      description: 'Literally you probably haven\'t heard of them jean shorts.',
+      features: ['Llenado de formulario e información sobre viaje', 'Estrategia para embajada', 'Seguimiento de cita', 'Asesoría para entrevista'],
+      description: 'Los resultados finales dependen de la embajada.',
     },
     {
       subtitle: 'MEXICO',
       price: '$80',
-      features: ['Vexillologist pitchfork', 'Tumeric plaid portland', 'Mixtape chillwave tumeric'],
-      description: 'Literally you probably haven\'t heard of them jean shorts.',
+      features: ['Llenado de formulario', 'Estrategia para embajada', 'Seguimiento de cita y actualizaciones de fecha', 'Asesoría para entrevista'],
+      description: 'Los resultados finales dependen de la embajada.',
     },
   ];
 
@@ -33,18 +42,16 @@ const Pricing = () => {
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <div className="flex flex-col items-center">
-            <h1 className="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Precios</h1>
-            <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical.</p>
-            <span className="mt-2 bg-red-500 text-white text-xs py-1 px-2 rounded-md">
-              6% de descuento en transferencia o depósito
-            </span>
+            <h2 className="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Precios</h2>
+            <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500">6% de descuento en transferencia o depósito bancario</p>
+
           </div>
 
         </div>
 
         <div className="flex flex-wrap -m-4">
           {prices.map((price, index) => (
-            <div key={index} className="p-4 xl:w-1/4 md:w-1/2 w-full">
+            <div key={index} className="p-4 xl:w-1/4 md:w-1/2 w-full" data-aos="fade-up" data-aos-delay={index * 200}>
               <div className="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
                 <h2 className="text-sm tracking-widest title-font mb-1 font-medium">{price.subtitle}</h2>
                 <div className="flex items-center">
